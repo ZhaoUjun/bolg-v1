@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <h2>{{data.title}}</h2>
+    <div class="addiction">
+        <div>{{data.createTime}}</div>
+        <div>
+          <span>阅读数</span>
+          <span>{{data.readCnt}}</span>
+        </div>
+    </div>
+    <div class="article" *ngIf="!showAll">
+        <span>{{data.content}}</span>
+        <span (click)="toggleShowAll(data.id)" class="btn">阅读全部</span>
+    </div>
+    <div class="article" *ngIf="showAll">
+      <span>{{detail}}</span>
+      <span (click)="toggleShowAll()" class="btn">收起</span>
+    </div>
+</div>
