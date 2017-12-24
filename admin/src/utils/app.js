@@ -1,10 +1,10 @@
-function applyRoute (routes,app) {
+export function applyRoute (routes,app) {
     return Object.keys(routes).map(key=>{
         app.use('/'+key,routes[key])
     })
 }
 
-function startServer(config,app) {
+export function startServer(config,app) {
     const server=app.listen(config,function () {
         const host = server.address().address;
         const port = server.address().port;
@@ -12,8 +12,3 @@ function startServer(config,app) {
     });
     return server
 }
-
-module.exports = {
-    applyRoute,
-    startServer
-};

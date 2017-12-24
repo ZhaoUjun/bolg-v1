@@ -1,6 +1,6 @@
 
 
-const Home = require('./Home');
+import Home from './Home';
 
 const home = new Home();
 

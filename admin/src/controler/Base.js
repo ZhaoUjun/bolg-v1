@@ -1,6 +1,7 @@
-const {query$} =require('../db/connect');
+import {query$} from '../db/connect';
+import {withCurry} from '../utils/decorator'
 
-class BaseController {
+export default class BaseController {
     constructor(){
 
     }
@@ -10,9 +11,12 @@ class BaseController {
     }
 
     splitStrToAry(propName,data){
-        return data.map(item=>Object({...item,...{[propName]:item[propName].split(',')}}))
+        return data.map(item=>{
+            return {...item ,...{[propName]:item[propName].split(',')}}
+        })
     }
 
+    @withCurry
     handleSuccess(res,data){
         res.send({
             data,
@@ -21,6 +25,7 @@ class BaseController {
         })
     }
 
+    @withCurry
     handleError(req,res,next,err){
         res.status(500);
         console.log(err);
@@ -29,4 +34,3 @@ class BaseController {
 
 }
 
-module.exports=BaseController;

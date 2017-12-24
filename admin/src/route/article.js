@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
+
 const router = express.Router();
-const {query$} =require('../db/connect');
 
 // 该路由使用的中间件
 router.use(function timeLog(req, res, next) {
@@ -23,4 +23,4 @@ router.put('/', function(req, res) {
     res.send('About birds');
 });
 
-module.exports = router;
+export default router;

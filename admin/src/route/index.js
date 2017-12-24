@@ -1,8 +1,8 @@
 
-const article = require('./article');
-const home = require('./home');
+import article from './article';
+import home from './home';
 
-module.exports={
+export default {
     article,
     home
 };

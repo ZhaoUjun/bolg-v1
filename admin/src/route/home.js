@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import HomeController from '../controler/Home';
+
 const router = express.Router();
-const HomeController =require('../controler/Home');
 
 const control=new HomeController();
 
@@ -13,5 +14,4 @@ router.use(function timeLog(req, res, next) {
 //获取文章列表
 router.get('/', control.getArticles.bind(control));
 
-
-module.exports = router;
+export  default router;

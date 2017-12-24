@@ -1,17 +1,14 @@
-const BaseController = require('./Base');
-const {curry} = require('ramda');
+import BaseController from './Base';
+import {curry} from 'ramda';
 
-class HomeController extends BaseController {
+export default class HomeController extends BaseController {
 
     getArticles(req,res,next){
         this.query$('select * from article order by id limit 0,2;')
             .map(curry(this.splitStrToAry)('tagIds'))
             .subscribe(
-                curry(this.handleSuccess)(res)
-                ,()=>this.handleError(req,res,next))
+                this.handleSuccess(res),
+                this.handleError(req,res,next)
+            )
     }
-
 }
-
-
-module.exports=HomeController;

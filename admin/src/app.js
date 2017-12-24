@@ -1,7 +1,7 @@
-const express = require('express');
-const routes = require('./route');
-const {applyRoute,startServer} = require('./utils/app');
-const serverConfig = require('./serverConfig');
+import serverConfig from './serverConfig'
+import express from 'express';
+import routes from './route';
+import {applyRoute,startServer} from './utils/app';
 
 const app=express();
 
