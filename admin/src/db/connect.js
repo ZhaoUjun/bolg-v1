@@ -19,6 +19,9 @@ function query$(sql) {
             }
             return res[1]
         })
+        .catch(err=>{
+            throw err
+        })
 }
 
 module.exports={
