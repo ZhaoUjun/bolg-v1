@@ -10,6 +10,7 @@ export default class BaseController {
         return query$(sql)
     }
 
+    @withCurry
     splitStrToAry(propName,data){
         return data.map(item=>{
             return {...item ,...{[propName]:item[propName].split(',')}}
@@ -29,7 +30,10 @@ export default class BaseController {
     handleError(req,res,next,err){
         res.status(500);
         console.log(err);
-        next('服务器歇逼了')
+        next({
+            msg:'服务器斜壁了',
+            code:10
+        })
     }
 
 }

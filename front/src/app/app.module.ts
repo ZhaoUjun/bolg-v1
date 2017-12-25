@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {HTTP_INTERCEPTORS,HttpClientModule} from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ArchivesComponent } from './archives/archives.component';
 import { AboutComponent } from './about/about.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticlePreviewComponent } from './home/component/article-preview/article-preview.component';
+import { HeaderInterceptor } from './HeaderInterceptor'
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -45,9 +47,14 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HeaderInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

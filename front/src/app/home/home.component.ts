@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 export class Article{
   id:number;
@@ -10,63 +12,11 @@ export class Article{
   readCnt:number;
 }
 
-const data=[
-  {
-    id:1,
-    name:'me',
-    createTime:1321331321,
-    tags:['13213'],
-    content:'很多人想知道rx在项目中具体表现怎样，本期很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样...',
-    title:'Rx进阶之路',
-    readCnt:32131
-  },
-  {
-    id:1,
-    name:'me',
-    createTime:1321331321,
-    tags:['13213'],
-    content:'很多人想知道rx在项目中具体表现怎样，本期很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样...',
-    title:'Rx进阶之路',
-    readCnt:32131
-  },
-  {
-    id:1,
-    name:'me',
-    createTime:1321331321,
-    tags:['13213'],
-    content:'很多人想知道rx在项目中具体表现怎样，本期很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样...',
-    title:'Rx进阶之路',
-    readCnt:32131
-  },
-  {
-    id:1,
-    name:'me',
-    createTime:1321331321,
-    tags:['13213'],
-    content:'很多人想知道rx在项目中具体表现怎样，本期很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样...',
-    title:'Rx进阶之路',
-    readCnt:32131
-  },
-  {
-    id:1,
-    name:'me',
-    createTime:1321331321,
-    tags:['13213'],
-    content:'很多人想知道rx在项目中具体表现怎样，本期很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样...',
-    title:'Rx进阶之路',
-    readCnt:32131
-  },
-  {
-    id:1,
-    name:'me',
-    createTime:1321331321,
-    tags:['13213'],
-    content:'很多人想知道rx在项目中具体表现怎样，本期很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样很多人想知道rx在项目中具体表现怎样...',
-    title:'Rx进阶之路',
-    readCnt:32131
-  },
-];
-
+interface ItemsResponse {
+  code: string;
+  data:Article[];
+  msg:string
+}
 
 @Component({
   selector: 'app-home',
@@ -75,11 +25,17 @@ const data=[
 })
 export class HomeComponent implements OnInit {
 
-  articles:Article[]=data;
+  articles:Article[]=[];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+      this.http
+        .get<ItemsResponse>('http://127.0.0.1:3000/home')
+        .map(res=>res.data)
+        .subscribe(data=>{
+          this.articles=data
+        })
   }
 
 }

@@ -1,7 +1,11 @@
-import serverConfig from './serverConfig'
+import {serverConfig} from './constant'
+import log4js from 'log4js';
 import express from 'express';
 import routes from './route';
-import {applyRoute,startServer} from './utils/app';
+import {logger} from './utils/logger'
+import {applyRoute,startServer,applyMiddleWares} from './utils/app';
+import {logError,test1,checkSignature,allowCORS} from './utils/appMiddlewares';
+
 
 const app=express();
 
@@ -9,15 +13,11 @@ app.get('/',function (req, res) {
     res.send('hello Word');
 });
 
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500); // 状态码默认为500（服务器内部错误）
-    res.render('error', {
-        message: err.message,
-        error: err    // 生产环境中应设为 `error: {}`，禁止输出错误
-    });
-});
-
 app.use(express.static('static'));
+app.use(log4js.connectLogger(logger, { level: log4js.levels.INFO }));
+
+
+applyMiddleWares(app,checkSignature,allowCORS,test1,logError,);
 
 applyRoute(routes,app);
 
