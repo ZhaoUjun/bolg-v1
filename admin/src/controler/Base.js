@@ -10,6 +10,10 @@ export default class BaseController {
         return query$(sql)
     }
 
+    query(sql){
+        return query$(sql).toPromise()
+    }
+
     @withCurry
     splitStrToAry(propName,data){
         return data.map(item=>{

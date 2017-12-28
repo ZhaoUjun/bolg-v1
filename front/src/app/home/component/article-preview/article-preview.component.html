@@ -6,6 +6,9 @@
           <span>阅读数</span>
           <span>{{data.readCnt}}</span>
         </div>
+        <div>
+          <span *ngFor="let tag of data.tags" class="tag">{{tag.name}}</span>
+        </div>
     </div>
     <div class="article" *ngIf="!showAll">
         <span>{{data.content}}</span>

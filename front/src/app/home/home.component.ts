@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
+class Tag{
+  id:number;
+  name:string
+}
+
 export class Article{
   id:number;
   name:string;
   createTime:number;
-  tags:string[];
+  tags:Tag[];
   content:string;
   title:string;
   readCnt:number;
@@ -25,7 +30,7 @@ interface ItemsResponse {
 })
 export class HomeComponent implements OnInit {
 
-  articles:Article[]=[];
+  articles:Article[];
 
   constructor(private http: HttpClient) { }
 
