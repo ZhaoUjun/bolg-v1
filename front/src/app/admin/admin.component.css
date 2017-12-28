@@ -1,0 +1,12 @@
+.container{
+  height: 100%;
+}
+.body{
+  display: flex;
+  min-width: 1300px;
+  height: calc(100% - 70px);
+}
+
+.right-view{
+  padding: 1em;
+}

@@ -24,7 +24,7 @@ interface ItemsResponse {
 }
 
 @Component({
-  selector: 'app-home',
+  selector: 'main-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

@@ -21,6 +21,5 @@ export default class HomeController extends BaseController {
             return {...article,tags}
         });
         this.handleSuccess(res)(await Promise.all(result))
-        // res.send(await Promise.all(result))
     }
 }
