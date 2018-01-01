@@ -1,22 +1,29 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs'
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
-import set = Reflect.set;
+
+const [BASE_API_URL]=[
+  'http://127.0.0.1:3000'
+];
 
 @Injectable()
 export class HeaderInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Get the auth header from the service.
-    // Clone the request to add the new header.
-    const headers=req.headers
-      .set('Authorization', 'Authorization')
-      .set('Sign','sign')
-      .set('Time',String(Date.now()))
-    ;
-    const authReq = req.clone({headers});
+
+    let finalReq=req.clone({url:BASE_API_URL+req.url});
+
+    if (req.url.startsWith('/admin')){
+      const headers=req.headers
+        .set('Authorization', 'Authorization')
+        .set('Sign','sign')
+        .set('Time',String(Date.now()))
+      ;
+      finalReq=finalReq.clone({headers});
+    }
+
     // Pass on the cloned request instead of the original request.
-    return next.handle(authReq);
+    return next.handle(finalReq);
   }
 }

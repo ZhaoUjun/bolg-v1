@@ -31,7 +31,7 @@ export class ArticleService {
   }
 
   addArticle(data:Article){
-    return this.http.post('http://127.0.0.1:3000/admin/article',data)
+    return this.http.post('/admin/article',data)
   }
 
 

@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
       this.http
-        .get<ItemsResponse>('http://127.0.0.1:3000/home')
+        .get<ItemsResponse>('/home')
         .map(res=>res.data)
         .subscribe(data=>{
           this.articles=data
