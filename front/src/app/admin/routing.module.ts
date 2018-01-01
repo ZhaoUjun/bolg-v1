@@ -8,7 +8,7 @@ import { IndexComponent } from './index/index.component'
 
 
 const mainRoutes: Routes = [
-  { path: 'admin',
+  { path: '',
     component: AdminComponent,
     children:[
       { path: 'index',

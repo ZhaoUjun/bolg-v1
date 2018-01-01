@@ -8,8 +8,7 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   { path: 'admin',
-    redirectTo: '/admin/index',
-    pathMatch: 'full'
+    loadChildren:'app/admin/admin.module#AdminModule'
   },
 ];
 

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HTTP_INTERCEPTORS,HttpClientModule} from '@angular/common/http';
 import { MainModule } from './main/main.module'
-import { AdminModule } from './admin/admin.module'
 import { AppRoutingModule } from './app-routing.module'
 
 import { AppComponent } from './app.component';
@@ -17,7 +16,6 @@ import { HeaderInterceptor } from './HeaderInterceptor'
   imports: [
     BrowserModule,
     HttpClientModule,
-    AdminModule,
     MainModule,
     AppRoutingModule,
   ],
