@@ -11,10 +11,14 @@ import { ArticleComponent } from './article/article.component';
 
 
 const mainRoutes: Routes = [
-  { path: 'home',
+  { path: '',
     component: MainComponent,
     children:[
-      { path: 'index',
+      { path:'',
+        pathMatch: 'full',
+        redirectTo:'home',
+      },
+      { path: 'home',
         component: HomeComponent
       },
       { path: 'archives',

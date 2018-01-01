@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '',
-    redirectTo: '/home/index',
-    pathMatch: 'full'
+    loadChildren:'app/main/main.module#MainModule'
   },
   { path: 'admin',
     loadChildren:'app/admin/admin.module#AdminModule'
