@@ -15,7 +15,7 @@
         <span (click)="toggleShowAll(data.id)" class="btn">阅读全部</span>
     </div>
     <div class="article" *ngIf="showAll">
-      <span>{{detail}}</span>
+      <article-detail [articleContent]="data.content"></article-detail>
       <span (click)="toggleShowAll()" class="btn">收起</span>
     </div>
 </div>

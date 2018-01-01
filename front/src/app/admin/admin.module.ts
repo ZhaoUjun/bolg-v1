@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  }   from '@angular/forms';
 
 import { RoutingModule } from './routing.module'
 
 import { AdminComponent } from './admin.component';
 import { HeaderComponent } from './header/header.component';
 import { SideComponent } from './side/side.component';
-import { EditComponent } from './edit/edit.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { AddArticleComponent } from './add-article/add-article.component'
 import { IndexComponent } from './index/index.component'
+import { EditorComponent } from './editor/editor.component'
+import { ShareModule } from '../share/share.module'
+import { ArticleService } from './article.service'
 
 
 
@@ -18,7 +20,9 @@ import { IndexComponent } from './index/index.component'
   imports: [
     CommonModule,
     RoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    ShareModule
   ],
   exports:[
     AdminComponent
@@ -27,10 +31,11 @@ import { IndexComponent } from './index/index.component'
     AdminComponent,
     HeaderComponent,
     SideComponent,
-    EditComponent,
     ArticlesComponent,
     AddArticleComponent,
-    IndexComponent
-  ]
+    IndexComponent,
+    EditorComponent,
+  ],
+  providers: [ArticleService]
 })
 export class AdminModule { }

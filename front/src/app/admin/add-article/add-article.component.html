@@ -1,3 +1,8 @@
-<p>
-  add-article works!
-</p>
+<div class="container">
+  <div>
+    <article-editor (articleChange)="handleArticleChange($event)"></article-editor>
+  </div>
+  <div>
+    <article-viewer [content]="articleContent"></article-viewer>
+  </div>
+</div>

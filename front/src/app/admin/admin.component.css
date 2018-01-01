@@ -9,4 +9,5 @@
 
 .right-view{
   padding: 1em;
+  width: calc(100% - 140px);
 }

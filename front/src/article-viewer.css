@@ -1,0 +1,39 @@
+.article-viewer{
+  padding: 1em;
+}
+
+.article-viewer pre{
+  padding: 1em;
+  background-color: rgba(108, 122, 204, 0.1);
+  border-radius: 5px;
+  margin: 1em 0 ;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.article-viewer pre code{
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+}
+
+.article-viewer p code{
+  background-color: rgba(108, 122, 204, 0.1);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.article-viewer a{
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.article-viewer p{
+  margin: 1em 0;
+}
+
+.article-viewer ul{
+  padding-left: 2em;
+}
+article-viewer h2{
+  padding: 0.5em 0;
+}

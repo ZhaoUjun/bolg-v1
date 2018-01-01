@@ -19,7 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "vs2015.css",
+        "article-viewer.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

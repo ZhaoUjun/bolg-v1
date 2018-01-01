@@ -1,5 +1,21 @@
 import BaseController from './Base';
 import {autobind} from 'core-decorators'
+import {pickBy,pipe,merge} from 'ramda'
+import { subString } from '../utils/common'
+
+function excludeProps(propName) {
+    return pickBy((v,k)=>k!==propName)
+}
+
+function fixContent(article) {
+   return merge({preview:subString(150,article.content)},article)
+}
+
+function log(data) {
+    console.log(data)
+    return data
+}
+
 
 export default class HomeController extends BaseController {
 
@@ -10,7 +26,8 @@ export default class HomeController extends BaseController {
 
     @autobind
     async getArticles(req,res,next){
-        const articles=await this.query('select * from article order by id limit 0,2;').then(this.splitStrToAry('tagIds'));
+        const articles=await this.articleService.getArticles()
+            .then(this.splitStrToAry('tagIds'));
         const result=articles.map(async article=>{
             let tags=[];
             if (article.tagIds){
@@ -18,7 +35,11 @@ export default class HomeController extends BaseController {
                      tags.push(result[0]?result[0]:[])
                  }
             }
-            return {...article,tags}
+            return pipe(
+                excludeProps('tagIds'),
+                fixContent,
+                log,
+            )({...article,tags})
         });
         this.handleSuccess(res)(await Promise.all(result))
     }

@@ -1,7 +1,12 @@
-import {query$} from '../db/connect';
+import {query$,connection} from '../db/connect';
 import {withCurry} from '../utils/decorator'
+import ArticleService from '../service/ArticleService'
 
 export default class BaseController {
+
+    articleService=new ArticleService();
+
+
     constructor(){
 
     }
@@ -16,8 +21,9 @@ export default class BaseController {
 
     @withCurry
     splitStrToAry(propName,data){
+        console.log(data)
         return data.map(item=>{
-            return {...item ,...{[propName]:item[propName].split(',')}}
+            return {...item ,...{[propName]:item[propName]?item[propName].split(','):null}}
         })
     }
 

@@ -1,9 +1,9 @@
-import mysql from 'mysql';
+import mysql,{format} from 'mysql';
 import config from './MysqlConfig';
 import Rx from 'rxjs';
 
 
-const connection = mysql.createConnection(config.mysql);
+export const connection = mysql.createConnection(config.mysql);
 
 connection.connect();
 
@@ -23,3 +23,9 @@ export function query$(sql) {
             throw err
         })
 }
+
+export function query(sql) {
+    return query$(sql).toPromise()
+}
+
+

@@ -1,0 +1,31 @@
+<div class="container">
+  <div>
+    <form [formGroup]="articleForm" novalidate>
+      <div class="form-group">
+        <label class="center-block">
+          <span>标题:</span>
+          <input class="form-control" formControlName="title">
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="center-block">
+          <span>标签:</span>
+          <select class="form-control" formControlName="tagIds" multiple >
+            <option *ngFor="let state of tagOptions" [value]="state.id">{{state.name}}</option>
+          </select>
+          <div>{{articleForm.get('tagIds').value}}</div>
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="center-block">
+          <span>正文:</span>
+          <textarea  class="form-control" formControlName="content"></textarea>
+        </label>
+      </div>
+      <div class="op">
+        <button (click)="handleSave($event)">保存</button>
+        <button (click)="handleSubmit($event)">发布</button>
+      </div>
+    </form>
+  </div>
+</div>
