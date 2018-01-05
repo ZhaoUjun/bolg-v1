@@ -1,0 +1,4 @@
+[2017-12-30T11:29:10.638] [INFO] log_file - 127.0.0.1 - - "OPTIONS /home HTTP/1.1" 200 8 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"
+[2017-12-30T11:29:10.686] [INFO] log_file - 127.0.0.1 - - "GET /home HTTP/1.1" 304 - "http://localhost:4200/home/index" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"
+[2017-12-30T11:29:21.117] [INFO] log_file - 127.0.0.1 - - "OPTIONS /home HTTP/1.1" 200 8 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"
+[2017-12-30T11:29:21.174] [INFO] log_file - 127.0.0.1 - - "GET /home HTTP/1.1" 304 - "http://localhost:4200/home/index" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36"

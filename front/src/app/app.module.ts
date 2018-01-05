@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderInterceptor } from './HeaderInterceptor'
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,11 +16,14 @@ import { HeaderInterceptor } from './HeaderInterceptor'
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: HeaderInterceptor,
-    multi: true,
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true,
+    },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

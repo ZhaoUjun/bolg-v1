@@ -9,6 +9,9 @@ const appRoutes: Routes = [
   { path: 'admin',
     loadChildren:'app/admin/admin.module#AdminModule'
   },
+  { path: 'login',
+    loadChildren:'app/login/login.module#LoginModule'
+  },
 ];
 
 @NgModule({

@@ -1,7 +1,11 @@
 import {query$,connection} from '../db/connect';
 import {withCurry} from '../utils/decorator'
 import ArticleService from '../service/ArticleService'
+import {values,isEmpty} from 'ramda'
 
+function objValNotEmpty(obj) {
+    return values(obj).every(v=>isEmpty(v))
+}
 export default class BaseController {
 
     articleService=new ArticleService();
@@ -9,6 +13,14 @@ export default class BaseController {
 
     constructor(){
 
+    }
+
+    /**
+     * 检查请求Body的值是否空
+     * @param body
+     */
+    bodyIsNotEmpty(body){
+        return values(body).every(v=>!isEmpty(v))
     }
 
     query$(sql){
@@ -28,11 +40,11 @@ export default class BaseController {
     }
 
     @withCurry
-    handleSuccess(res,data){
+    handleSuccess(res,data,code=0,msg='成功'){
         res.send({
             data,
-            code:0,
-            msg:'成功'
+            code,
+            msg
         })
     }
 
@@ -45,6 +57,8 @@ export default class BaseController {
             code:10
         })
     }
+
+
 
 }
 

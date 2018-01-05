@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="wrapper">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div>
+        <input placeholder="请输入账号"
+               type="text"
+               [(ngModel)]="model.account"
+               [ngModelOptions]="{standalone: true}"
+               autocomplete
+               required
+               minlength="6"
+               #account="ngModel"
+        />
+      </div>
+      <div>
+        <input placeholder="请输入密码"
+               type="password"
+               [(ngModel)]="model.password"
+               [ngModelOptions]="{standalone: true}"
+               autocomplete
+               minlength="6"
+               required
+               #password="ngModel"
+
+        />
+      </div>
+      <div class="captcha">
+        <input type="number"
+               placeholder="请输入验证码"
+               [(ngModel)]="model.captcha"
+               [ngModelOptions]="{standalone: true}"
+               autocomplete
+               minlength="4"
+               maxlength="4"
+               required
+        />
+        <img src="{{captcha}}" alt="">
+        <span (click)="setCaptcha($event)" class="refresh">刷新</span>
+      </div>
+      <div class="login-btn">
+        <button type="submit">登陆</button>
+      </div>
+      <div *ngIf="msg" class="error-msg">{{msg}}</div>
+    </form>
+  </div>
+</div>

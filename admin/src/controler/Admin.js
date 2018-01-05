@@ -2,6 +2,7 @@ import BaseController from './Base';
 import HomeController from './Home'
 import {autobind} from 'core-decorators'
 
+
 const home=new HomeController();
 export default class AdminController extends BaseController {
 
@@ -28,4 +29,6 @@ export default class AdminController extends BaseController {
             this.handleError.apply(this,[...arguments,err])
         }
     }
+
+
 }
