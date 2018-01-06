@@ -4,6 +4,8 @@ import {HTTP_INTERCEPTORS,HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
 import { HeaderInterceptor } from './HeaderInterceptor'
+import {AuthGuard} from './auth-guard.service'
+import {AuthService} from './share/auth.service'
 
 
 
@@ -22,7 +24,8 @@ import { HeaderInterceptor } from './HeaderInterceptor'
       useClass: HeaderInterceptor,
       multi: true,
     },
-
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

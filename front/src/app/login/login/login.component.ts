@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service'
+import {AuthService} from '../../share/auth.service'
 import { Router } from '@angular/router';
 import {LoginForm,ResponseVo} from '../types'
 
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService :LoginService,
-    private router:Router
+    private authService :AuthService,
+    private router:Router,
   ) {
     this.setCaptcha();
   }
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.loginService.handelSubmitLogin(this.model)
       .subscribe((res:ResponseVo)=>{
         if (res.code===0){
+          this.authService.login(res.data);
           this.router.navigateByUrl('/admin')
         }
         else {

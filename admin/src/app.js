@@ -27,4 +27,4 @@ applyMiddleWares(app,allowCORS,test1,logError,);
 
 applyRoute(routes,app);
 
-startServer(serverConfig,app);
+export const appServer=startServer(serverConfig,app);

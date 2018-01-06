@@ -19,12 +19,10 @@ export function test1(req, res, next) {
 
 export function checkSignature(req, res, next) {
     if (isInWhiteList(signalWhiteList,req)){
-        next()
+        return next()
     }
-    else {
-        //check here
-        next()
-    }
+    //check here
+    next()
 
 }
 

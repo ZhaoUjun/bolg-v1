@@ -1,4 +1,3 @@
-import {tail,head,reverse,compose} from 'ramda';
 
 export function applyRoute (routes,app) {
     return Object.keys(routes).map(key=>{

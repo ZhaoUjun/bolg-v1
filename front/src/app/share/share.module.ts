@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MarkdownDirective } from './markdown.directive'
 import { ArticleViewerComponent } from './article-viewer/article-viewer.component'
+import { AuthService } from './auth.service'
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,10 @@ import { ArticleViewerComponent } from './article-viewer/article-viewer.componen
   exports:[
     CommonModule,
     MarkdownDirective,
-    ArticleViewerComponent
+    ArticleViewerComponent,
+  ],
+  providers:[
+    AuthService
   ]
 })
 export class ShareModule { }

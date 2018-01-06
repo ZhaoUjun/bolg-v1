@@ -25,7 +25,10 @@ export default class Login extends BaseController{
             .then(result=>{
                 if (result&&result.length>0){
                     session.destroy();
-                    this.handleSuccess(res,true)
+                    this.handleSuccess(res,{
+                        authorId:result[0].id,
+                        authorName:result[0].name
+                    })
                 }
                 else {
                     return this.handleSuccess(res,false,10,'账号或者密码错误')

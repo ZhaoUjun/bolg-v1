@@ -12,20 +12,24 @@ export class HeaderInterceptor implements HttpInterceptor {
 
     let finalReq=req.clone({
       url:APP_CONFIG.BASE_API_URL+req.url,
+      withCredentials:true
     });
+
     if (req.url.startsWith('/admin')){
-      const headers=req.headers
-        .set('Authorization', 'Authorization')
-        .set('Sign','sign')
-        .set('Time',String(Date.now()))
-      ;
-      finalReq=finalReq.clone({headers});
-    }
-    if (req.url.startsWith('/login')){
-      finalReq=finalReq.clone({withCredentials:true})//
+      finalReq=generateHeaders(finalReq);
     }
 
-    // Pass on the cloned request instead of the original request.
     return next.handle(finalReq);
   }
+
+}
+
+function generateHeaders(req:HttpRequest<any>):HttpRequest<any>{
+  const headers=req.headers
+    .set('AppId', 'appId')
+    .set('AppKey', 'appKey')
+    .set('Sign','sign')
+    .set('Time',String(Date.now()))
+  ;
+  return req.clone({headers});
 }

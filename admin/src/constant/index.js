@@ -21,4 +21,9 @@ export const SESSION_CONFIG={
     resave: true,
     //强制“未初始化”的会话保存到存储。
     saveUninitialized: false,
+};
+
+export const TOKEN_CONFIG={
+    APP_KEY:"ASDA43454asd545",
+    SALT:"xiaoru",
 }

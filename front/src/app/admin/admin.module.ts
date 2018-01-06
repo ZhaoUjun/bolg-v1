@@ -12,7 +12,7 @@ import { AddArticleComponent } from './add-article/add-article.component'
 import { IndexComponent } from './index/index.component'
 import { EditorComponent } from './editor/editor.component'
 import { ShareModule } from '../share/share.module'
-import { ArticleService } from './article.service'
+import { ArticleService } from './article.service';
 
 
 
@@ -36,6 +36,6 @@ import { ArticleService } from './article.service'
     IndexComponent,
     EditorComponent,
   ],
-  providers: [ArticleService]
+  providers: [ArticleService ]
 })
 export class AdminModule { }

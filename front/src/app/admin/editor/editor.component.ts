@@ -52,8 +52,12 @@ export class EditorComponent implements OnInit {
 
   handleSave(){
     this.articleSV.addArticle(this.articleForm.value)
-      .subscribe(res=>{
+      .subscribe(
+        res=>{
         console.log(res)
+      },
+        err=>{
+        console.log(err.message)
       })
   }
 

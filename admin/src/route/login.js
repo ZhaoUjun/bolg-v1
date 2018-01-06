@@ -14,7 +14,7 @@ router.use(function(req, res, next) {
     next();
 });
 
-//获取文章列表
+//登陆
 router.post('/', handleLogin);
 
 router.get('/captcha.png',getCaptcha);
