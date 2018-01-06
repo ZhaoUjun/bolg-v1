@@ -1,3 +1,6 @@
-<p>
-  archives works!
-</p>
+<div class="container">
+  <div class="msg" *ngIf="!archives||archives.length===0">
+    <img src="../../../assets/images/empty.png" alt="">
+    <div> 博主暂未进行归档~</div>
+  </div>
+</div>

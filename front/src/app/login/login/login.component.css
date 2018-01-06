@@ -17,7 +17,8 @@
 }
 
 .error-msg{
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
   color: red;
   font-size: 14px;
 }
@@ -30,13 +31,16 @@
 }
 
 .wrapper form>div{
-  margin: 1em 0;
+  margin: 1.5em 0;
+  width: 20em;
 }
 
 .wrapper input{
-  padding: 5px;
-  width: 18em;
+  padding: 15px 5px;
+  width: 100%;
+  height: 2em;
   box-sizing: border-box;
+  font-size: 18px;
 }
 
 .login-btn{
@@ -45,8 +49,8 @@
 }
 
 .login-btn button{
-  width: 18em;
-  height: 2.5em;
+  width: 100%;
+  height: 3em;
 }
 
 .captcha{

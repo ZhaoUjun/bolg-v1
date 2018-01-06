@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MarkdownDirective } from './markdown.directive'
 import { ArticleViewerComponent } from './article-viewer/article-viewer.component'
-import { AuthService } from './auth.service'
+import { AuthService } from './auth.service';
+import { PaginationComponent } from './pagination/pagination.component'
 
 
 @NgModule({
@@ -12,12 +13,15 @@ import { AuthService } from './auth.service'
   ],
   declarations: [
     MarkdownDirective,
-    ArticleViewerComponent
+    ArticleViewerComponent,
+    PaginationComponent
   ],
   exports:[
     CommonModule,
     MarkdownDirective,
     ArticleViewerComponent,
+    PaginationComponent
+
   ],
   providers:[
     AuthService

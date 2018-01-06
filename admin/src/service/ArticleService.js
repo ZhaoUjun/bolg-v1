@@ -16,6 +16,12 @@ export default class ArticleService extends BaseService {
         return pipe(this.joinConditions(condition),this.query)(sql)
     }
 
+    getArticlesByTagId(tagId,pageNo=1,pageSize=this.PAGE_SIZE){
+        const {from ,to} =this.getRange(pageNo,pageSize);
+        const sql=`select * from article where tagIds regexp "${this.generateQueryIdSQL(tagId)}" order by id limit ${from},${to};`;
+        return this.query(sql)
+    }
+
     /**
      * 新增文章
      * @param data
@@ -24,4 +30,6 @@ export default class ArticleService extends BaseService {
     addArticle(data){
         return this.insertData('article',data)
     }
+
+
 }

@@ -40,7 +40,7 @@
       <div class="login-btn">
         <button type="submit">登陆</button>
       </div>
-      <div *ngIf="msg" class="error-msg">{{msg}}</div>
+      <div [hidden]="!msg" class="error-msg">{{msg}}</div>
     </form>
   </div>
 </div>

@@ -7,4 +7,14 @@
   padding: 0 50px;
   background-color: white;
   box-sizing: border-box;
+  box-shadow: #33333317 2px 2px;
+  position: relative;
+  z-index: 100;
+}
+
+.log-out{
+  border: none;
+  background-color: white;
+  color: #0086b3;
+  cursor: pointer;
 }

@@ -52,6 +52,10 @@ export default class BaseService {
             return {...item ,...{[propName]:item[propName].split(',')}}
         })
     }
+
+    generateQueryIdSQL(id){
+        return `^id$|^$id,|,id$|,id,`.replace(/id/g,id)
+    }
 }
 
 

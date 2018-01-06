@@ -4,8 +4,10 @@ import {HTTP_INTERCEPTORS,HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
 import { HeaderInterceptor } from './HeaderInterceptor'
+import { StoreModule } from '@ngrx/store';
 import {AuthGuard} from './auth-guard.service'
 import {AuthService} from './share/auth.service'
+import {reducers} from './reducers'
 
 
 
@@ -17,6 +19,7 @@ import {AuthService} from './share/auth.service'
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [
     {

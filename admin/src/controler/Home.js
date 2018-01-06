@@ -26,8 +26,14 @@ export default class HomeController extends BaseController {
 
     @autobind
     async getArticles(req,res,next){
-        const articles=await this.articleService.getArticles()
-            .then(this.splitStrToAry('tagIds'));
+        let articles;
+        if (req.query.tagId){
+            articles=await this.getArticlesByTagId(req.query.tagId)
+                .then(this.splitStrToAry('tagIds'))
+        }else {
+            articles=await this.articleService.getArticles()
+                .then(this.splitStrToAry('tagIds'));
+        }
         const result=articles.map(async article=>{
             let tags=[];
             if (article.tagIds){
@@ -43,4 +49,10 @@ export default class HomeController extends BaseController {
         });
         this.handleSuccess(res)(await Promise.all(result))
     }
+
+    async getArticlesByTagId(id){
+        return this.articleService.getArticlesByTagId(id)
+    }
+
+
 }
