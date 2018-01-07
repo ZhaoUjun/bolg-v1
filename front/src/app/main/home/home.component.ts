@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {ArticleService} from '../article.service'
 import { Store } from '@ngrx/store';
-import {FetchArticle} from '../mainReducer'
-import 'rxjs/add/operator/map';
+import {ArticleService} from '../article.service'
+import {FetchArticle} from '../../share/actions/main'
+import {AppState} from '../../share/reducers'
 import {Article} from '../types'
 import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeAll';
+import 'rxjs/add/operator/do';
 
-interface mainState{
-  articles:Article[]
-}
 
-interface AppState {
-  main: mainState;
-}
 
 @Component({
   selector: 'main-home',
@@ -26,15 +23,16 @@ export class HomeComponent implements OnInit {
     private articleService: ArticleService,
     private store: Store<AppState>
   ) {
-    this.articles$ = store.select('main','articles');
+    this.articles$ = store.select('main','tag')
+      .map(tag=>this.articleService.getArticles(tag?tag.id:''))
+      .mergeAll()
+      .do(data=>this.store.dispatch(new FetchArticle(data)))
+      .map(()=>store.select('main','articles'))
+      .mergeAll()
+    ;
   }
 
   ngOnInit() {
-      this.articleService.getArticles()
-        .subscribe(
-          data=>this.store.dispatch(new FetchArticle(data)),
-          error =>console.log(error)
-        )
-  }
 
+  }
 }

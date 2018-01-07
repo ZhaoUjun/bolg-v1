@@ -7,7 +7,7 @@ import { HeaderInterceptor } from './HeaderInterceptor'
 import { StoreModule } from '@ngrx/store';
 import {AuthGuard} from './auth-guard.service'
 import {AuthService} from './share/auth.service'
-import {reducers} from './reducers'
+import {reducers} from './share/reducers/index'
 
 
 

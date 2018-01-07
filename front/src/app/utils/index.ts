@@ -29,3 +29,17 @@ export function joinQueryString(url:string,queryParas:object):string{
     return finalUrl
   }
 }
+
+
+/**
+ *
+ * @param {Object} types
+ * @param {{}} initial
+ * @returns {(state: {}, action) => any}
+ */
+export function createReducer(types:object,initial={}){
+  const values=Object.keys(types).map(key=>types[key]);
+  return(state=initial,action)=>values
+    .map(type=>action.type===type?action.payload:{})
+    .reduce((pre,next)=>({...pre,...next}),state)
+}

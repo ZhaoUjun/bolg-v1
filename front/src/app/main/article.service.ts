@@ -16,7 +16,7 @@ export class ArticleService {
     private http:HttpClient
   ) { }
 
-  getArticles(tagId?:string,pageNo=1):Observable<any>{
+  getArticles(tagId?:string|number,pageNo=1):Observable<any>{
     const url=joinQueryString('/home?',{
       tagId,
       pageNo

@@ -7,7 +7,7 @@
           <span>{{data.readCnt}}</span>
         </div>
         <div>
-          <span *ngFor="let tag of data.tags" class="tag" (click)="searchArticle(tag.id)">{{tag.name}}</span>
+          <span *ngFor="let tag of data.tags" class="tag" (click)="searchArticle(tag)">{{tag.name}}</span>
         </div>
     </div>
     <div class="article" *ngIf="!showAll">
