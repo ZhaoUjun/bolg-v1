@@ -3,15 +3,18 @@ import {Article,Tag} from '../../main/types'
 
 
 
+
 export enum MainTypes {
   FETCH_ARTICLES = '[Article] fetch',
   SELECT_TAG='[Article] select_tag',
-  CLEAR_TAG='[Article] clear_tag'
+  CLEAR_TAG='[Article] clear_tag',
+  CHANGE_PAGE='[Article] change_page'
 }
 
 export interface MainPayload{
   articles?:Article[];
-  tag?:Tag
+  tag?:Tag;
+  currentPage?:number
 }
 
 export class FetchArticle implements Action {
@@ -22,11 +25,19 @@ export class FetchArticle implements Action {
   }
 }
 
+export class ChangePage implements Action {
+  readonly type = MainTypes.CHANGE_PAGE;
+  public payload:MainPayload;
+  constructor(private currentPage: number) {
+    this.payload={currentPage}
+  }
+}
+
 export class SelectTag implements Action {
   readonly type = MainTypes.SELECT_TAG;
   public payload:MainPayload;
   constructor(private tag: Tag) {
-    this.payload={tag}
+    this.payload={tag,currentPage:1}
   }
 }
 

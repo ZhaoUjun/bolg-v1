@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 
-import { HomeComponent } from './home/home.component';
+import { ArticleContainerComponent } from './home/article-container.component';
 import { MainComponent } from './main.component';
 import { ArchivesComponent } from './archives/archives.component';
 import { AboutComponent } from './about/about.component';
 import { ArticleComponent } from './article/article.component';
+
 
 
 const mainRoutes: Routes = [
@@ -19,7 +20,7 @@ const mainRoutes: Routes = [
         redirectTo:'home',
       },
       { path: 'home',
-        component: HomeComponent
+        component: ArticleContainerComponent
       },
       { path: 'archives',
         component: ArchivesComponent

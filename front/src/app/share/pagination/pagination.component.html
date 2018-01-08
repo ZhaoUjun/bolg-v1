@@ -1,4 +1,4 @@
 <div class="container">
-  <button>上一页</button>
-  <button disabled>下一页</button>
+  <button disabled="{{currentPage===1?'disabled':''}}" (click)="reducePage($event)">上一页</button>
+  <button disabled="{{currentPage*10>maxPage?'disabled':''}}" (click)="addPage($event)">下一页</button>
 </div>

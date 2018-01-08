@@ -7,7 +7,7 @@ import { HeaderInterceptor } from './HeaderInterceptor'
 import { StoreModule } from '@ngrx/store';
 import {AuthGuard} from './auth-guard.service'
 import {AuthService} from './share/auth.service'
-import {reducers} from './share/reducers/index'
+import {reducers,initState} from './share/reducers/index'
 
 
 
@@ -19,7 +19,7 @@ import {reducers} from './share/reducers/index'
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers,{initialState:initState})
   ],
   providers: [
     {

@@ -5,7 +5,6 @@ import { ShareModule } from '../share/share.module'
 
 import { MainComponent} from './main.component'
 import { ArticleContainerComponent} from './home/article-container.component'
-import { HomeComponent} from './home/home.component'
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ArchivesComponent } from './archives/archives.component';
@@ -32,7 +31,6 @@ import { ArticleService } from './article.service';
     FooterComponent,
     ArchivesComponent,
     ArticlePreviewComponent,
-    HomeComponent,
     AboutComponent,
     ArticleComponent,
     ArticleDetailComponent,

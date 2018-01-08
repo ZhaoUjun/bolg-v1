@@ -75,7 +75,7 @@ module.exports = {
     "symlinks": true,
     "alias": {
       ...rxPaths(),
-      actions:path.resolve(__dirname,'src/app/share/actions')
+      "@actions":'./src/app/share/actions'
     },
     "mainFields": [
       "browser",
