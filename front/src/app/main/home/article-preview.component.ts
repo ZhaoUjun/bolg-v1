@@ -40,4 +40,8 @@ export class ArticlePreviewComponent implements OnInit {
     this.store.dispatch(new SelectTag(tag))
   }
 
+  filterNull(tag:any){
+    return tag.id
+  }
+
 }

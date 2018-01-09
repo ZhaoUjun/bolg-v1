@@ -7,7 +7,8 @@
           <span>{{data.readCnt}}</span>
         </div>
         <div>
-          <span *ngFor="let tag of data.tags" class="tag" (click)="searchArticle(tag)">{{tag.name}}</span>
+          <span  class="tag" (click)="searchArticle({id:''})">所有</span>
+          <span *ngFor="let tag of data.tags.filter(filterNull)" class="tag" (click)="searchArticle(tag)">{{tag.name}}</span>
         </div>
     </div>
     <div class="article" *ngIf="!showAll">

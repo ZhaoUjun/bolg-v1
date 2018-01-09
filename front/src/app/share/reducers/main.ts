@@ -5,6 +5,7 @@ import {createReducer} from '../../utils'
 
 export const initialState={
   currentPage:1,
+  articles:[]
 };
 
 

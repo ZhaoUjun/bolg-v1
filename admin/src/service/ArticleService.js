@@ -10,10 +10,10 @@ export default class ArticleService extends BaseService {
      * @param pageSize
      * @returns {*}
      */
-    getArticles(condition={},pageNo=1,pageSize=this.PAGE_SIZE) {
+    getArticles(pageNo=1,pageSize=this.PAGE_SIZE) {
         const {from ,to} =this.getRange(pageNo,pageSize);
         const sql=`select * from article order by id limit ${from},${to};`;
-        return pipe(this.joinConditions(condition),this.query)(sql)
+        return this.query(sql)
     }
 
     getArticlesByTagId(tagId,pageNo=1,pageSize=this.PAGE_SIZE){

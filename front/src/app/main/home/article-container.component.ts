@@ -13,6 +13,7 @@ import 'rxjs/add/operator/mergeAll';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/combineLatest'
+import 'rxjs/add/observable/of'
 
 
 
@@ -26,7 +27,7 @@ import 'rxjs/add/observable/combineLatest'
         [currentPage]="currentPage$|async"
         [AddAction]="addPageAction$|async"
         [ReduceAction]="reducePageAction$|async"
-        [maxPage]="100" 
+        [maxPage]="maxPage$|async" 
       ></app-pagination>
     </div>
   `,
@@ -45,6 +46,8 @@ export class ArticleContainerComponent implements OnInit,OnChanges {
 
   currentPage$:Observable<number>;
 
+  maxPage$:Observable<number>;
+
   constructor(
     private articleService: ArticleService,
     private store: Store<AppState>
@@ -62,6 +65,9 @@ export class ArticleContainerComponent implements OnInit,OnChanges {
       .map(page=>new ChangePage(page+1));
     this.reducePageAction$=this.currentPage$
       .map(page=>new ChangePage(page-1));
+    this.maxPage$=this.articles$
+      .map(articles=>articles.length===10?this.currentPage$.map(page=>page+1):this.currentPage$)
+      .mergeAll()
   }
 
   ngOnInit() {

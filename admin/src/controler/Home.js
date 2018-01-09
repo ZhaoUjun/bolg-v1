@@ -28,10 +28,10 @@ export default class HomeController extends BaseController {
     async getArticles(req,res,next){
         let articles;
         if (req.query.tagId){
-            articles=await this.getArticlesByTagId(req.query.tagId)
+            articles=await this.getArticlesByTagId(req.query.tagId,req.query.pageNo)
                 .then(this.splitStrToAry('tagIds'))
         }else {
-            articles=await this.articleService.getArticles()
+            articles=await this.articleService.getArticles(req.query.pageNo)
                 .then(this.splitStrToAry('tagIds'));
         }
         const result=articles.map(async article=>{
@@ -44,7 +44,6 @@ export default class HomeController extends BaseController {
             return pipe(
                 excludeProps('tagIds'),
                 fixContent,
-                log,
             )({...article,tags})
         });
         this.handleSuccess(res)(await Promise.all(result))
