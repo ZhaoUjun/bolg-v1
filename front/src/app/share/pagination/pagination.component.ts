@@ -7,7 +7,7 @@ import {AppState} from '../reducers'
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.css']
 })
-export class PaginationComponent implements OnInit,OnChanges {
+export class PaginationComponent implements OnInit {
 
   @Input()
   currentPage:number;
@@ -35,9 +35,6 @@ export class PaginationComponent implements OnInit,OnChanges {
   reducePage(e){
     this.store.dispatch(this.ReduceAction)
 
-  }
-  ngOnChanges(){
-    console.log(this.maxPage,this.currentPage)
   }
 
 

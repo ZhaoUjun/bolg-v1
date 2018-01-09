@@ -12,7 +12,6 @@ import { ArticlePreviewComponent } from './home/article-preview.component';
 import { AboutComponent } from './about/about.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
-import { TagPanelComponent } from './tag-panel/tag-panel.component'
 import { ArticleService } from './article.service';
 
 
@@ -36,7 +35,6 @@ import { ArticleService } from './article.service';
     ArticleComponent,
     ArticleDetailComponent,
     ArticleContainerComponent,
-    TagPanelComponent
   ],
   providers: [ArticleService]
 })

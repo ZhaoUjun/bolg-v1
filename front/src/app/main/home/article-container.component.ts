@@ -8,13 +8,12 @@ import {
 import {AppState} from '../../share/reducers'
 import {Article} from '../types'
 import {Observable} from "rxjs/Observable";
+import {Subject} from "rxjs/Subject";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeAll';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/combineLatest'
-import 'rxjs/add/observable/of'
-
 
 
 @Component({
@@ -54,20 +53,23 @@ export class ArticleContainerComponent implements OnInit,OnChanges {
   ){
     const tag$=store.select('main','tag');
     this.currentPage$=store.select('main','currentPage');
-    this.articles$ =Observable.combineLatest(tag$,this.currentPage$)
+    const subject=new Subject<Article[]>();
+    const articleSource =Observable.combineLatest(tag$,this.currentPage$)
       .debounceTime(0)
       .map(([tag,page])=>this.articleService.getArticles(tag?tag.id:'',page))
       .mergeAll()
       .do(data=>this.store.dispatch(new FetchArticle(data)))
       .map(()=>store.select('main','articles'))
       .mergeAll();
+    articleSource.subscribe(subject);
+    this.articles$=subject;
     this.addPageAction$=this.currentPage$
       .map(page=>new ChangePage(page+1));
     this.reducePageAction$=this.currentPage$
       .map(page=>new ChangePage(page-1));
-    this.maxPage$=this.articles$
+    this.maxPage$=subject
       .map(articles=>articles.length===10?this.currentPage$.map(page=>page+1):this.currentPage$)
-      .mergeAll()
+      .mergeAll();
   }
 
   ngOnInit() {
