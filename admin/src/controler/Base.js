@@ -48,6 +48,11 @@ export default class BaseController {
         })
     }
 
+    handleReqError(res,payload={}){
+        res.send(payload)
+    }
+
+
     @withCurry
     handleError(req,res,next,err){
         res.status(500);
@@ -57,8 +62,6 @@ export default class BaseController {
             code:10
         })
     }
-
-
 
 }
 

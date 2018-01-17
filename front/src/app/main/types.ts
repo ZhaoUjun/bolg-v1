@@ -16,6 +16,12 @@ export class Article{
 export interface ArticleResponse {
   code: string;
   data:Article[];
-  msg:string
+  msg:string;
+}
+
+export interface CommonResponse {
+  code: number;
+  data:Article[];
+  msg:string;
 }
 

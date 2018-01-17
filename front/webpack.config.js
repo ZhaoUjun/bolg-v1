@@ -61,7 +61,7 @@ const postcssPlugins = function () {
     };
 
 
-
+console.log(path.resolve(__dirname,'./src/app'))
 module.exports = {
   "resolve": {
     "extensions": [
@@ -75,7 +75,8 @@ module.exports = {
     "symlinks": true,
     "alias": {
       ...rxPaths(),
-      "@actions":'./src/app/share/actions'
+      "@actions":path.resolve(__dirname,'./src/app/share/actions'),
+      "@app":path.resolve(__dirname,'./src/app')
     },
     "mainFields": [
       "browser",

@@ -26,7 +26,8 @@ export class ArticlePreviewComponent implements OnInit {
   data:Article;
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private service:ArticleService
   ) { }
 
   ngOnInit() {
@@ -34,6 +35,9 @@ export class ArticlePreviewComponent implements OnInit {
 
   toggleShowAll(id:number):void{
     this.showAll=!this.showAll;
+    console.log(id)
+    this.service.addViewTimes(id)
+      .subscribe(res=>res.data)
   }
 
   searchArticle(tag){

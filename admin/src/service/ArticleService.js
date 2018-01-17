@@ -31,5 +31,21 @@ export default class ArticleService extends BaseService {
         return this.insertData('article',data)
     }
 
+    /**
+     * 新增文章
+     * @param data
+     * @returns {*}
+     */
+    addViewTime(id){
+        const sql=new this.SQL({
+            table:'article',
+            data:{readCnt:'readCnt +1 '},
+            condition:`id =${id}`
+        })
+        return this.query(sql.updateSql)
+    }
+
+
+
 
 }

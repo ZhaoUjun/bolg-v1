@@ -13,6 +13,8 @@ export default class BaseService {
 
     PAGE_SIZE=QUERY_CONFIG.PAGE_SIZE;
 
+    SQL=SQL;
+
     query$(sql){
         return query$(sql)
     }

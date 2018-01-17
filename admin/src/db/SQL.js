@@ -1,16 +1,20 @@
-import  { }  from '../constant'
 import {keys,values} from 'ramda'
 import {format} from 'mysql'
 
+function join(obj) {
+    return keys(obj).map(key=>`${key}=${obj[key]}`).toString()
+}
 
 export class SQL{
     constructor(config){
-        const { table,data} =config;
+        const { table,data,condition} =config;
+        this.condition=condition;
+        this.data=data;
         this.table=table;
         this.keys=keys(data);
         this.values=values(data);
-        this.insertSql=this.createInsertSql()
-
+        this.insertSql=this.createInsertSql();
+        this.updateSql=this.createUpdateSql();
     }
 
     createInsertSql(){
@@ -19,7 +23,7 @@ export class SQL{
     }
 
     createUpdateSql(){
-
+        return `UPDATE ${this.table} SET  ${join(this.data)} where ${this.condition}`
     }
 
     queryAll(withCondition){
