@@ -1,5 +1,5 @@
 FROM node:latest
-RUN pwd
+RUN ls
 RUN npm install \
     && npm run build
 
