@@ -1,4 +1,5 @@
 FROM node:latest
-RUN npm install \
+RUN cd front \
+    && npm install \
     && npm run build
 
