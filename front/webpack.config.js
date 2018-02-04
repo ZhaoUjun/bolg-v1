@@ -95,15 +95,15 @@ module.exports = {
   },
   "entry": {
     "main": [
-      "./src\\main.ts"
+      "./src/main.ts"
     ],
     "polyfills": [
-      "./src\\polyfills.ts"
+      "./src/polyfills.ts"
     ],
     "styles": [
-      "./src\\styles.css",
-      "./src\\vs2015.css",
-      "./src\\article-viewer.css"
+      "./src/styles.css",
+      "./src/vs2015.css",
+      "./src/article-viewer.css"
     ]
   },
   "output": {
