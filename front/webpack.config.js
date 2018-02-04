@@ -61,7 +61,7 @@ const postcssPlugins = function () {
     };
 
 
-console.log(path.resolve(__dirname,'./src/app'))
+console.log(rxPaths());
 module.exports = {
   "resolve": {
     "extensions": [
