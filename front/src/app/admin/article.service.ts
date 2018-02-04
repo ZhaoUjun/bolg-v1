@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {Article} from './type'
-import {Observable} from 'rxjs/observable'
+import {Observable} from 'rxjs/Observable'
 
 interface ItemsResponse {
   code: string;

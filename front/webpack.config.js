@@ -60,8 +60,6 @@ const postcssPlugins = function () {
         ].concat(minimizeCss ? [cssnano(minimizeOptions)] : []);
     };
 
-
-console.log(rxPaths());
 module.exports = {
   "resolve": {
     "extensions": [
