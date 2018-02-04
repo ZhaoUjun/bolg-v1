@@ -136,9 +136,9 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css"),
-          path.join(process.cwd(), "src\\vs2015.css"),
-          path.join(process.cwd(), "src\\article-viewer.css")
+          path.join(process.cwd(), "src/styles.css"),
+          path.join(process.cwd(), "src/vs2015.css"),
+          path.join(process.cwd(), "src/article-viewer.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -162,9 +162,9 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css"),
-          path.join(process.cwd(), "src\\vs2015.css"),
-          path.join(process.cwd(), "src\\article-viewer.css")
+          path.join(process.cwd(), "src/styles.css"),
+          path.join(process.cwd(), "src/vs2015.css"),
+          path.join(process.cwd(), "src/article-viewer.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -196,9 +196,9 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css"),
-          path.join(process.cwd(), "src\\vs2015.css"),
-          path.join(process.cwd(), "src\\article-viewer.css")
+          path.join(process.cwd(), "src/styles.css"),
+          path.join(process.cwd(), "src/vs2015.css"),
+          path.join(process.cwd(), "src/article-viewer.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -228,9 +228,9 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css"),
-          path.join(process.cwd(), "src\\vs2015.css"),
-          path.join(process.cwd(), "src\\article-viewer.css")
+          path.join(process.cwd(), "src/styles.css"),
+          path.join(process.cwd(), "src/vs2015.css"),
+          path.join(process.cwd(), "src/article-viewer.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -261,9 +261,9 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css"),
-          path.join(process.cwd(), "src\\vs2015.css"),
-          path.join(process.cwd(), "src\\article-viewer.css")
+          path.join(process.cwd(), "src/styles.css"),
+          path.join(process.cwd(), "src/vs2015.css"),
+          path.join(process.cwd(), "src/article-viewer.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -287,9 +287,9 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css"),
-          path.join(process.cwd(), "src\\vs2015.css"),
-          path.join(process.cwd(), "src\\article-viewer.css")
+          path.join(process.cwd(), "src/styles.css"),
+          path.join(process.cwd(), "src/vs2015.css"),
+          path.join(process.cwd(), "src/article-viewer.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -321,9 +321,9 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css"),
-          path.join(process.cwd(), "src\\vs2015.css"),
-          path.join(process.cwd(), "src\\article-viewer.css")
+          path.join(process.cwd(), "src/styles.css"),
+          path.join(process.cwd(), "src/vs2015.css"),
+          path.join(process.cwd(), "src/article-viewer.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -353,9 +353,9 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css"),
-          path.join(process.cwd(), "src\\vs2015.css"),
-          path.join(process.cwd(), "src\\article-viewer.css")
+          path.join(process.cwd(), "src/styles.css"),
+          path.join(process.cwd(), "src/vs2015.css"),
+          path.join(process.cwd(), "src/article-viewer.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -490,10 +490,10 @@ module.exports = {
       "mainPath": "main.ts",
       "platform": 0,
       "hostReplacementPaths": {
-        "environments\\environment.ts": "environments\\environment.ts"
+        "environments/environment.ts": "environments/environment.ts"
       },
       "sourceMap": true,
-      "tsConfigPath": "src\\tsconfig.app.json",
+      "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true,
       "compilerOptions": {}
     })
