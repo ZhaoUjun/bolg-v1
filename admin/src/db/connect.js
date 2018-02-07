@@ -2,6 +2,7 @@ import mysql,{format} from 'mysql';
 import config from './MysqlConfig';
 import Rx from 'rxjs';
 
+console.log(config);
 
 export const connection = mysql.createConnection(config.mysql);
 
