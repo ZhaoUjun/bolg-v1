@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d build",
-    "start": "babel-node src/app.js --experimental-modules -u root -p 275431605"
+    "start": "babel-node src/app.js --experimental-modules"
   },
   "author": "",
   "license": "ISC",

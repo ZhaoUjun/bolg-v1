@@ -1,4 +1,4 @@
-import {query$,connection} from '../db/connect';
+import {query$} from '../db/connect';
 import {withCurry} from '../utils/decorator'
 import ArticleService from '../service/ArticleService'
 import {values,isEmpty} from 'ramda'
