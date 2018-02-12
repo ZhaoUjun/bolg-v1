@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install
+RUN npm config set registry http://registry.npm.taobao.org && npm install
 # If you are building your code for production
 # RUN npm install
 
