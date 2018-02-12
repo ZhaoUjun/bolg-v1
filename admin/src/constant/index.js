@@ -5,7 +5,7 @@ export const signalWhiteList=[
 
 export const serverConfig={
     port: 3030,
-    host: 'localhost',
+    host: '0.0.0.0',
 };
 
 export const QUERY_CONFIG={
