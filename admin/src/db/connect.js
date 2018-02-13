@@ -36,7 +36,6 @@ function _query(sql, values, cb) {
 export function query$(sql) {
     return Rx.Observable.bindCallback(_query)(sql)
         .map(res=>{
-            console.log(res)
             if (res[0]){
                 throw res[0]
             }
