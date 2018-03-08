@@ -17,7 +17,7 @@ COPY . .
 
 EXPOSE 3030
 
-CMD["node","./build/app.js","-u", "root", "-p", "275431605"]
+CMD ["node","./build/app.js","-u", "root", "-p", "275431605"]
 
 
 
